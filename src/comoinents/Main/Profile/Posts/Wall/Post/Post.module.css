@@ -1,0 +1,16 @@
+.item {
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    background: rgb(235, 112, 112);
+    padding: 15px;
+    border-radius: 15px;
+    margin-top: 25px;
+}
+.img {
+    width: 60px;
+}
+.text {
+    margin-top: 0px;
+    color: #fff;
+    font-size: 20px;
+}

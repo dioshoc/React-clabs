@@ -6,6 +6,7 @@
     padding: 10px;
     border-radius: 5px;
     margin-top: 15px;
+    box-shadow: 5px 5px 0px 0px rgba(92, 209, 63, 0.295);
 }
 
 .title {

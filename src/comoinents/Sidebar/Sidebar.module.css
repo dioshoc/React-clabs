@@ -4,6 +4,7 @@
     padding: 10px;
     grid-auto-flow: column;
     border-radius: 5px;
+    box-shadow: 5px 5px 0px 0px rgba(92, 209, 63, 0.295);
 }
 
 .nav {
