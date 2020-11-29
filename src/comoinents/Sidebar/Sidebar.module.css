@@ -1,0 +1,33 @@
+.sidebar {
+    grid-area: n;
+    background: rgb(92, 209, 63);
+    padding: 10px;
+    grid-auto-flow: column;
+    border-radius: 5px;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+}
+.item {
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 5px;
+    transition: 0.5s;
+    margin: 2px 0;
+}
+
+.item:hover {
+    color: rgb(219, 79, 79);
+    background-color: rgb(245, 255, 100);
+    border-radius: 5px;
+}
+
+.item.active {
+    color: rgb(219, 79, 79);
+    background-color: rgb(245, 255, 100);
+    border-radius: 5px;
+}

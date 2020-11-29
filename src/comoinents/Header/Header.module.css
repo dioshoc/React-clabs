@@ -1,0 +1,18 @@
+.header {
+    grid-area: h;
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+    background: rgb(92, 209, 63);
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.title {
+    color: #fff;
+    margin-top: 15px;
+}
+
+.header img {
+    width: 80px;
+}
