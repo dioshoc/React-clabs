@@ -2,12 +2,16 @@ import Description from './Description/Description';
 import Posts from './Posts/Posts';
 import Class from './Profile.module.css';
 
-function Profile() {
+
+
+
+
+function Profile(props) {
     return (
         <div className={Class.content}>
             <div className={Class.user}>
                 <Description />
-                <Posts />
+                <Posts State={props.State} />
             </div>
         </div >
     );

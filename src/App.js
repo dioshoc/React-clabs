@@ -10,18 +10,19 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 
 
-function App() {
+function App(props) {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
         <Sidebar />
         <main className="app-wrapper-content">
-          <Route path='/Profile' component={Profile} />
-          <Route path='/Messager' component={Messager} />
-          <Route path='/News' component={News} />
-          <Route path='/Music' component={Music} />
-          <Route path='/Setings' component={Setings} />
+          <Route path='/Profile' render={() => <Profile State={props.State.ProfilePage} />} />
+          <Route path='/Messager' render={() => <Messager State={props.State.MessagerPage} />} />
+          <Route path='/News' render={() => <News />} />
+          <Route path='/Music' render={() => <Music />} />
+          <Route path='/Setings' render={() => <Setings />} />
+
         </main>
       </div>
     </BrowserRouter>

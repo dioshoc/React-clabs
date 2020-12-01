@@ -1,0 +1,26 @@
+.friends {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    background: rgb(100, 226, 68);
+    padding: 5px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.friends img {
+    width: 40px;
+    height: 40px;
+    background-color: red;
+    border-radius: 50%;
+    outline: none;
+    margin-right: 10px;
+}
+.name {
+    text-decoration: none;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+}

@@ -1,15 +1,20 @@
-
 import Class from './Posts.module.css'
 import Production from './Production/Production'
 import Wall from './Wall/Wall'
 
-function Posts() {
+
+
+
+function Posts(props) {
     return (
         <div className={Class.post}>
             <Production />
-            <Wall />
+            <Wall State={props.State} />
         </div >
     )
 }
+
+
+
 
 export default Posts

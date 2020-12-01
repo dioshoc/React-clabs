@@ -1,9 +1,10 @@
 .messager {
     display: grid;
-    grid-template-columns: 3fr 10fr;
+    grid-template-columns: 3fr 8fr;
 }
 
-.messager a {
-    text-decoration: none;
-    color: #fff;
+.messages {
+    margin-left: 30px;
+    border-radius: 15px;
+    position: relative;
 }
