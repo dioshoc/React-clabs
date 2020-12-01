@@ -4,12 +4,12 @@ import Class from './Profile.module.css';
 
 function Profile() {
     return (
-        <main className={Class.content}>
+        <div className={Class.content}>
             <div className={Class.user}>
                 <Description />
                 <Posts />
             </div>
-        </main >
+        </div >
     );
 }
 

@@ -1,0 +1,9 @@
+.messege {
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    padding: 10px;
+}
+
+.messege img {
+    width: 50px;
+}
