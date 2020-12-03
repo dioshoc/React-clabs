@@ -11,13 +11,17 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 
 function App(props) {
+
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
         <Sidebar />
         <main className="app-wrapper-content">
-          <Route path='/Profile' render={() => <Profile State={props.State.ProfilePage} />} />
+          <Route path='/Profile' render={() => <Profile
+            State={props.State.ProfilePage}
+            dispatch={props.dispatch}
+          />} />
           <Route path='/Messager' render={() => <Messager State={props.State.MessagerPage} />} />
           <Route path='/News' render={() => <News />} />
           <Route path='/Music' render={() => <Music />} />

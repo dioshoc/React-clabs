@@ -6,14 +6,14 @@ import Wall from './Wall/Wall'
 
 
 function Posts(props) {
+
     return (
         <div className={Class.post}>
-            <Production />
+            <Production dispatch={props.dispatch} newPostText={props.State.newPostText} />
             <Wall State={props.State} />
         </div >
     )
 }
-
 
 
 

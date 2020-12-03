@@ -15,19 +15,21 @@
     display: flex;
     position: relative;
 
+    cursor: pointer;
+    outline: none;
+
     background-color: rgb(92, 209, 63);
     border-radius: 5px;
-    width: 50px;
 
     margin: 10px 3px;
     margin-left: auto;
-    padding: 5px 25px;
+    padding: 10px 30px;
 
     color: rgb(255, 255, 255);
     font-weight: 700;
-
     text-transform: uppercase;
     text-decoration: none;
+
     transition: 0.5s;
 }
 .btn:hover {

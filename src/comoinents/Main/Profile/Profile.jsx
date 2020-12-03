@@ -11,7 +11,7 @@ function Profile(props) {
         <div className={Class.content}>
             <div className={Class.user}>
                 <Description />
-                <Posts State={props.State} />
+                <Posts State={props.State} dispatch={props.dispatch} />
             </div>
         </div >
     );
