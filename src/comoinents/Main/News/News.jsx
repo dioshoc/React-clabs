@@ -2,9 +2,9 @@ import Class from './News.module.css'
 
 function News() {
     return (
-        <main>
+        <div className={Class.news}>
             asd
-        </main >
+        </div >
     );
 }
 

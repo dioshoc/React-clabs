@@ -2,9 +2,9 @@ import Class from './Music.module.css'
 
 function Music() {
     return (
-        <main>
+        <div className={Class.music}>
             asd
-        </main >
+        </div >
     );
 }
 

@@ -2,9 +2,9 @@ import Class from './Setings.module.css'
 
 function Setings() {
     return (
-        <main>
+        <div className={Class.setings}>
             asd
-        </main >
+        </div >
     );
 }
 

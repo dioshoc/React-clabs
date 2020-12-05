@@ -10,7 +10,7 @@ let FastFriendsData = [
 
 function Sidebar() {
 
-    let FastFriend = FastFriendsData.map(data => <FastFriends id={data.id} name={data.name} />)
+    let FastFriend = FastFriendsData.map(data => <FastFriends id={data.id} name={data.name} key={data.id} />)
 
     return (
         <aside className={Class.sidebar}>

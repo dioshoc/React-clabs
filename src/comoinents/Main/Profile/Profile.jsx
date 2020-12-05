@@ -1,9 +1,6 @@
 import Description from './Description/Description';
-import Posts from './Posts/Posts';
+import PostContainer from './Posts/PostsContainer';
 import Class from './Profile.module.css';
-
-
-
 
 
 function Profile(props) {
@@ -11,7 +8,7 @@ function Profile(props) {
         <div className={Class.content}>
             <div className={Class.user}>
                 <Description />
-                <Posts State={props.State} dispatch={props.dispatch} />
+                <PostContainer />
             </div>
         </div >
     );
