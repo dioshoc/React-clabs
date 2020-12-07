@@ -7,7 +7,10 @@ import News from './comoinents/Main/News/News';
 import Music from './comoinents/Main/Music/Music';
 import Setings from './comoinents/Main/Setings/Setings';
 import Sidebar from './comoinents/Sidebar/Sidebar';
+import Friends from './comoinents/Main/Friends/Friends';
+
 import { BrowserRouter, Route } from 'react-router-dom';
+import FindFrendsContainer from './comoinents/Main/Friends/FindFriends/FindFriendsContainer';
 
 
 
@@ -20,7 +23,10 @@ function App(props) {
         <main className="app-wrapper-content">
           <Route path='/Profile' render={() => <Profile />} />
           <Route path='/Messager' render={() => <MessagerContainer />} />
+          <Route path='/Friends' render={() => <Friends />} />
+          <Route path='/FindFriends' render={() => <FindFrendsContainer />} />
           <Route path='/News' render={() => <News />} />
+
           <Route path='/Music' render={() => <Music />} />
           <Route path='/Setings' render={() => <Setings />} />
 

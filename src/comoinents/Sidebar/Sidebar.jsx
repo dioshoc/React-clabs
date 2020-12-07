@@ -17,7 +17,7 @@ function Sidebar() {
             <nav className={Class.nav}>
                 <NavLink to="/Profile" activeClassName={Class.active} className={Class.item}>Profile</NavLink>
                 <NavLink to="/Messager" activeClassName={Class.active} className={Class.item}>Message</NavLink>
-                <NavLink to="/Frends" activeClassName={Class.active} className={Class.item}>Friends</NavLink>
+                <NavLink to="/Friends" activeClassName={Class.active} className={Class.item}>Friends</NavLink>
                 <NavLink to="/News" activeClassName={Class.active} className={Class.item}>News</NavLink>
                 <NavLink to="/Music" activeClassName={Class.active} className={Class.item}>Music</NavLink>
                 <NavLink to="/Setings" activeClassName={Class.active} className={Class.item}>Setings</NavLink>
