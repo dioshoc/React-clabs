@@ -7,7 +7,7 @@ function Profile(props) {
     return (
         <div className={Class.content}>
             <div className={Class.user}>
-                <Description />
+                <Description profile={props.profile} />
                 <PostContainer />
             </div>
         </div >

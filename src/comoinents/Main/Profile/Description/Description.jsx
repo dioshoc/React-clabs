@@ -1,13 +1,20 @@
-import Info from './Info/Info'
 import Class from './Description.module.css'
+import Preloader from './../../../common/Preloader'
 
-function Description() {
+function Description(props) {
+    if (!props.profile) {
+        return <Preloader />
+    }
+    debugger
     return (
         <div className={Class.main}>
-            <img src="https://www.flaticon.com/svg/static/icons/svg/3802/3802095.svg" alt="" className={Class.img} />
+            <img src={props.profile.photos.large} alt="" className={Class.img} />
             <div className={Class.description}>
-                <h1 className={Class.name}>Alex Circov</h1>
-                <Info />
+                <h1 className={Class.name}>{props.profile.fullName}</h1>
+                <div className={Class.info}>
+                    <div>Job search: {props.profile.lookingForAJob === true ? "YEs;)" : "no"}</div>
+                    <div>Description: {props.profile.lookingForAJobDescription}</div>
+                </div>
             </div>
         </div>
     )

@@ -2,7 +2,7 @@ import './App.css';
 import Header from './comoinents/Header/Header';
 import MessagerContainer from './comoinents/Main/Messager/MessagerContainer';
 
-import Profile from './comoinents/Main/Profile/Profile';
+import ProfileConatiner from './comoinents/Main/Profile/ProfileConatiner';
 import News from './comoinents/Main/News/News';
 import Music from './comoinents/Main/Music/Music';
 import Setings from './comoinents/Main/Setings/Setings';
@@ -21,7 +21,7 @@ function App(props) {
         <Header />
         <Sidebar />
         <main className="app-wrapper-content">
-          <Route path='/Profile' render={() => <Profile />} />
+          <Route path='/Profile/:userID?' render={() => <ProfileConatiner />} />
           <Route path='/Messager' render={() => <MessagerContainer />} />
           <Route path='/Friends' render={() => <Friends />} />
           <Route path='/FindFriends' render={() => <FindFrendsContainer />} />
