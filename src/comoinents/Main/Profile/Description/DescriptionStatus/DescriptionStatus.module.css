@@ -1,0 +1,10 @@
+.descriptionStatus input {
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+.descriptionStatus input:focus {
+    border: none;
+    outline: none;
+}

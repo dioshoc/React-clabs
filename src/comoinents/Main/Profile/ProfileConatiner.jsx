@@ -1,9 +1,11 @@
 import React from 'react';
 import Profile from './Profile';
-import * as axios from "axios";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { setUserProfile } from "./../../../redux/profile-reducer";
+import { setUserProfile, getUserID, getUserStatus, updateUserStatus } from "./../../../redux/profile-reducer";
+import { setAuthUserData, authMe } from "./../../../redux/auth-reduser";
+import { withAuthRedirect } from "../../../HOC/withAuthRedirect";
+import { compose } from 'redux';
 
 
 class ProfileConatiner extends React.Component {
@@ -11,26 +13,42 @@ class ProfileConatiner extends React.Component {
     componentDidMount() {
         let userID = this.props.match.params.userID
         if (!userID) {
-            userID = 2
+            userID = this.props.Auth.id
         }
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + userID).then(response => {
-            this.props.setUserProfile(response.data)
-        })
+        this.props.getUserID(userID)
+        this.props.authMe()
+        this.props.getUserStatus(userID)
     }
 
     render() {
-        return (
-            <Profile {...this.props} profile={this.props.profile} />
-        );
+        if (this.props.Auth.isAuth) {
+            return (
+                <Profile {...this.props}
+                    profile={this.props.profile}
+                    status={this.props.status}
+                    updateUserStatus={this.props.updateUserStatus} />
+            );
+        }
     }
 }
 
 let mapStateToPorps = (state) => ({
-    profile: state.ProfilePage.profile
+    profile: state.ProfilePage.profile,
+    status: state.ProfilePage.status,
+    Auth: state.Auth,
 })
 
-let withURLDataContainerCompontnt = withRouter(ProfileConatiner)
+export default compose(
+    connect(mapStateToPorps, {
+        setUserProfile,
+        setAuthUserData,
+        authMe,
+        getUserID,
+        withAuthRedirect,
+        getUserStatus,
+        updateUserStatus
+    }),
+    withRouter,
+    withAuthRedirect,
+)(ProfileConatiner)
 
-export default connect(mapStateToPorps, {
-    setUserProfile
-})(withURLDataContainerCompontnt);

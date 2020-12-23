@@ -41,6 +41,10 @@
 .preview button:hover {
     color: rgb(219, 79, 79);
 }
+.preview button:disabled {
+    background-color: gray;
+    color: #fff;
+}
 .name {
     font-size: 30px;
 }
@@ -55,4 +59,9 @@ span {
     font-weight: 700;
     font-size: 23px;
     transition: 0.3s;
+}
+
+.pages {
+    width: 900px;
+    overflow: hidden;
 }

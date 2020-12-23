@@ -1,0 +1,52 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.login h1 {
+    display: flex;
+    justify-content: center;
+}
+.box {
+    display: flex;
+    justify-content: center;
+}
+.box input {
+    padding: 6px;
+    border-radius: 15px;
+    margin: 5px;
+    font-size: 18px;
+}
+.box button {
+    cursor: pointer;
+    font-weight: 700;
+    border-radius: 5px;
+    border: none;
+    background-color: #fff;
+    margin-top: 15px;
+    padding: 8px 20px;
+    transition: 0.3s;
+}
+.box button:hover {
+    background-color: rgb(92, 209, 63);
+    color: #fff;
+}
+.box span {
+    position: relative;
+    width: 150px;
+    font-size: 18px;
+    top: 4px !important;
+    right: -172px;
+    padding: 8px !important;
+    border-radius: 10px !important;
+}
+.box span::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(245, 255, 100);
+    transform: rotate(45deg);
+    top: 15px;
+    left: -5px;
+}

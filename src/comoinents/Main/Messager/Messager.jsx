@@ -1,20 +1,17 @@
 import Class from './Messager.module.css'
 import Message from './Message/Message'
 import User from './User/User'
-function Messager(props) {
+import { Field, reduxForm } from 'redux-form';
+import { Textarea } from '../../common/FormsControls/FormsControls';
+import { required } from '../../../utils/validators/validators';
 
+function Messager(props) {
     let UserElements = props.UserData.map(data => <User id={data.id} name={data.name} key={data.id} />);
     let MessageElements = props.MessageData.map(data => <Message message={data.message} key={data.id} />);
 
-    let sendMessage = () => {
-        props.sendMessage()
+    let NewMessageProduction = (values) => {
+        props.addMessage(values.newMessageBody)
     }
-
-    let onMessageChange = (e) => {
-        let text = e.target.value;
-        props.updateNewMessageText(text);
-    }
-
     return (
         <div className={Class.messager}>
             <div className={Class.dialogue}>
@@ -23,16 +20,34 @@ function Messager(props) {
                 }
             </div>
             <div className={Class.messages}>
-                {
-                    MessageElements
-                }
+                <div className={Class.AreaMessages}>
+                    {
+                        MessageElements
+                    }
+                </div>
+
                 <div className={Class.prodaction}>
-                    <textarea onChange={onMessageChange} value={props.newMessageText}></textarea>
-                    <button onClick={sendMessage}>Send Message</button>
+                    <MessageProductionForm onSubmit={NewMessageProduction} />
                 </div>
             </div>
         </div >
     );
 }
+
+
+const MessageProduction = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit} className={Class.prodactionForm}>
+            <Field component={Textarea}
+                validate={[required]}
+                name="newMessageBody"
+                placeholder="Enter your message..."></Field>
+            <button>Send Message</button>
+        </form>
+    )
+}
+
+const MessageProductionForm = reduxForm({ form: 'MessageProduction' })(MessageProduction)
+
 
 export default Messager

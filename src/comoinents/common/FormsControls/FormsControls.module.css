@@ -1,0 +1,25 @@
+.formControl {
+    position: relative;
+}
+
+.formControl.error input,
+.formControl.error textarea {
+    border: 3px solid rgb(245, 255, 100);
+}
+.formControl input,
+.formControl textarea {
+    border: 3px solid rgb(255, 255, 255);
+}
+.formControl.error span {
+    position: absolute;
+    padding: 10px;
+
+    font-weight: 700;
+    color: rgb(219, 79, 79);
+
+    background: rgb(245, 255, 100);
+    border-radius: 15px;
+
+    top: 100%;
+    left: 0;
+}

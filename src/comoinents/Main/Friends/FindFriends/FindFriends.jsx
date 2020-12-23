@@ -11,18 +11,22 @@ function FindFriends(props) {
                     <img src={u.photos.small != null ? u.photos.small : fishIMG} alt="" />
                 </NavLink>
                 {u.followed
-                    ? <button onClick={() => { props.unfollow(u.id) }}>UnFollow</button>
-                    : <button onClick={() => { props.follow(u.id) }}>Follow</button>
+                    ? <button disabled={props.followingIsProgress.some(id => id === u.id)} onClick={() => {
+                        props.confirmUnfollow(u.id)
+                    }}>UnFollow</button>
+
+                    : <button disabled={props.followingIsProgress.some(id => id === u.id)} onClick={() => {
+                        props.confirmFollow(u.id)
+                    }}>Follow</button>
                 }
             </div>
             <div className={Class.info}>
                 <div className={Class.description}>
                     <div className={Class.name}>{u.name}</div>
-                    {/* <div className={Class.location}>{u.location.country}, {u.location.city}</div> */}
                 </div>
                 <div className={Class.status}>{u.status}</div>
             </div>
-        </div>)
+        </div >)
 
 
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -32,10 +36,9 @@ function FindFriends(props) {
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i)
     }
-
     return (
         <div>
-            <div>
+            <div className={Class.pages}>
                 {pages.map(p => {
                     return (
                         <span className={props.currentPage === p && Class.selectPage}

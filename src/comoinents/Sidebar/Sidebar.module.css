@@ -1,10 +1,14 @@
 .sidebar {
-    grid-area: n;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
     background: rgb(92, 209, 63);
     padding: 10px;
-    grid-auto-flow: column;
     border-radius: 5px;
     box-shadow: 5px 5px 0px 0px rgba(92, 209, 63, 0.295);
+    margin: 10px;
+    margin-left: 0;
+    margin-bottom: 0;
 }
 
 .nav {

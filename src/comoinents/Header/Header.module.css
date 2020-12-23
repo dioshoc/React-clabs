@@ -1,7 +1,7 @@
 .header {
     grid-area: h;
     display: grid;
-    grid-template-columns: 1fr 9fr;
+    grid-template-columns: 1fr 8fr 2fr;
     background: rgb(92, 209, 63);
     padding: 10px;
     border-radius: 5px;
@@ -16,4 +16,29 @@
 
 .header img {
     width: 80px;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -15px;
+}
+.login a {
+    color: #fff;
+    font-weight: 700;
+}
+.profile {
+    display: flex;
+    align-items: center;
+}
+.profile button {
+    cursor: pointer;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: underline;
+    background: none;
+    border: none;
+    margin-bottom: -4px;
 }
