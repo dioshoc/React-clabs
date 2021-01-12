@@ -12,7 +12,7 @@ function Sidebar(props) {
                 <NavLink to="/Friends" activeClassName={Class.active} className={Class.item}>Friends</NavLink>
                 <NavLink to="/News" activeClassName={Class.active} className={Class.item}>News</NavLink>
                 <NavLink to="/Music" activeClassName={Class.active} className={Class.item}>Music</NavLink>
-                <NavLink to="/Setings" activeClassName={Class.active} className={Class.item}>Setings</NavLink>
+                <NavLink to="/Setings" activeClassName={Class.active} className={Class.item} >Setings</NavLink>
             </aside >
         )
     } else { return null }

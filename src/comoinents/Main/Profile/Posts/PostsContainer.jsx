@@ -5,7 +5,8 @@ import Posts from './Posts';
 let mapStateToProps = (state, props) => {
     return {
         posts: state.ProfilePage.PostData,
-        profile: props.profile
+        profile: props.profile,
+        AuthID: state.Auth.id,
     }
 }
 let mapDispatchToProps = (dispatch) => {
@@ -17,7 +18,5 @@ let mapDispatchToProps = (dispatch) => {
 }
 
 const PostContainer = connect(mapStateToProps, mapDispatchToProps)(Posts);
-
-
 
 export default PostContainer

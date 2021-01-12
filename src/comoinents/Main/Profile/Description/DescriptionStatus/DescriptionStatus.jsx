@@ -1,15 +1,18 @@
 import Class from "./DescriptionStatus.module.css"
 import React from 'react';
 
+
 class DesctiptionStatus extends React.Component {
     state = {
         editMode: false,
         status: this.props.status
     }
     activeteEditMode = () => {
-        this.setState({
-            editMode: true
-        })
+        if (this.props.userID === this.props.AuthID) {
+            this.setState({
+                editMode: true
+            })
+        }
     }
     deactiveteEditMode = () => {
         this.setState({

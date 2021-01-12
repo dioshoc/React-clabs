@@ -8,15 +8,16 @@ function Posts(props) {
     let addPost = (value) => {
         props.addPost(value.NewPostText)
     }
-
     if (!props.profile) {
         return null
     }
     return (
         <div className={Class.post}>
             <div className={Class.production}>
-                <h1 className={Class.title}>My posts</h1>
-                <PostProductionForm onSubmit={addPost} />
+                {props.profile.userId === props.AuthID
+                    ? <h1 className={Class.title}>My posts</h1>
+                    : <h1 className={Class.title}>{props.profile.fullName} posts</h1>}
+                {props.profile.userId === props.AuthID ? <PostProductionForm onSubmit={addPost} /> : null}
             </div>
 
             <div className={Class.wall}>
@@ -44,7 +45,7 @@ function PostsProduction(props) {
                 name="NewPostText"
                 className={Class.input}
                 placeholder="Enter your message..."
-                validate={[required, maxLength250]}
+                validate={[maxLength250]}
             />
             <button className={Class.btn}>Send</button>
         </form >

@@ -2,7 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { confirmFollow, confirmUnfollow, setCurrentPage, getUsers, toggleIsFollowingProgress, } from "../../../../redux/findFriend-reduser";
 import FindFriends from "./FindFriends";
-import Preloader from "../../../common/Preloader";
+
+import { getIsFetching, getCurrentPage, getFollowingIsProgress, getPageSize, getTotalUserCount, getUsersFindFriend } from "../../../../redux/findFriend-selectors";
 
 
 class FindFriendsContainer extends React.Component {
@@ -16,7 +17,6 @@ class FindFriendsContainer extends React.Component {
 
     render() {
         return <>
-            {this.props.isFetching ? <Preloader /> : null}
             <FindFriends
                 totalUsersCount={this.props.totalUsersCount}
                 pageSize={this.props.pageSize}
@@ -27,19 +27,30 @@ class FindFriendsContainer extends React.Component {
                 users={this.props.users}
                 toggleIsFollowingProgress={this.props.toggleIsFollowingProgress}
                 followingIsProgress={this.props.followingIsProgress}
-
+                isFetching={this.props.isFetching}
             />
         </>
     }
 }
 
-let mapStateToProps = (state) => {
+/* let mapStateToProps = (state) => {
     return {
         users: state.FindFriendPage.users,
         pageSize: state.FindFriendPage.pageSize,
         totalUsersCount: state.FindFriendPage.totalUsersCount,
         currentPage: state.FindFriendPage.currentPage,
         followingIsProgress: state.FindFriendPage.followingIsProgress,
+    }
+}
+ */
+let mapStateToProps = (state) => {
+    return {
+        users: getUsersFindFriend(state),
+        pageSize: getPageSize(state),
+        totalUsersCount: getTotalUserCount(state),
+        currentPage: getCurrentPage(state),
+        followingIsProgress: getFollowingIsProgress(state),
+        isFetching: getIsFetching(state),
     }
 }
 

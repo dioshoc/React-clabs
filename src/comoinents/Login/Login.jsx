@@ -5,6 +5,7 @@ import { Input } from "../common/FormsControls/FormsControls";
 import { login } from "../../redux/auth-reduser";
 import { Redirect } from "react-router-dom";
 import Class from "./Login.module.css";
+import Style from "./../common/FormsControls/FormsControls.module.css";
 
 const LoginForm = (props) => {
     return (
@@ -18,10 +19,16 @@ const LoginForm = (props) => {
             <div className={Class.box}>
                 <Field type="checkbox" component={Input} name={"rememberMe"} />remember me
             </div>
+            {props.error && <div className={Style.boxFormSummaryError}>
+                <span className={Style.formSummaryError}>
+                    {props.error}
+                </span>
+            </div>}
+
             <div className={Class.box}>
                 <button>Login</button>
             </div>
-        </form>
+        </form >
     )
 
 }

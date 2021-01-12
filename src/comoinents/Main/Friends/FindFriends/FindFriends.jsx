@@ -1,6 +1,7 @@
 import React from "react";
 import Class from "./FindFriends.module.css";
 import fishIMG from "./../../../../assets/img/fish.svg";
+import Preloader from "../../../common/Preloader";
 import { NavLink } from "react-router-dom";
 
 function FindFriends(props) {
@@ -30,7 +31,6 @@ function FindFriends(props) {
 
 
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-
     let pages = [];
     /*НАчинается с "i = 1" что бы загружать пользователей с первой старницы*/
     for (let i = 1; i <= pagesCount; i++) {
@@ -46,9 +46,8 @@ function FindFriends(props) {
                     )
                 })}
             </div>
-            {
-                ListFindFriends
-            }
+            {props.isFetching ? <Preloader /> : ListFindFriends}
+
         </div >
     )
 }

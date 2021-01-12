@@ -5,7 +5,7 @@ import Friends from "./Friends";
 
 let mapStateToProps = (state) => {
     return {
-
+        frends: state.FindFriendPage.user,
     }
 }
 

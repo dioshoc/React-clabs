@@ -4,20 +4,21 @@ import fish from "../../../../assets/img/fish.svg";
 import DescriptionStatus from "./DescriptionStatus/DescriptionStatus";
 
 function Description(props) {
-
     if (!props.profile) {
         return <Preloader />
     }
     return (
         <div className={Class.main}>
-            {props.profile.photos.large === null
-                ? <img src={fish} alt="" className={Class.img} />
-                : <img src={props.profile.photos.large} alt="" className={Class.img} />
-            }
+            <div>
+                {props.profile.photos.large === null
+                    ? <img src={fish} alt="" className={Class.img} />
+                    : <img src={props.profile.photos.large} alt="" className={Class.img} />
+                }
+            </div>
             <div className={Class.description}>
                 <h1 className={Class.name}>{props.profile.fullName}</h1>
 
-                <DescriptionStatus status={props.status} updateUserStatus={props.updateUserStatus} />
+                <DescriptionStatus status={props.status} updateUserStatus={props.updateUserStatus} userID={props.profile.userId} AuthID={props.AuthID} />
 
                 <div className={Class.info}>
                     <div>Job search: {props.profile.lookingForAJob === true ? "YEs;)" : "no"}</div>

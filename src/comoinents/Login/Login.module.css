@@ -36,7 +36,7 @@
     width: 150px;
     font-size: 18px;
     top: 4px !important;
-    right: -172px;
+    right: -172px !important;
     padding: 8px !important;
     border-radius: 10px !important;
 }
