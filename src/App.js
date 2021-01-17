@@ -18,16 +18,13 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import Preloader from './comoinents/common/Preloader';
 
-
-
 class App extends React.Component {
   componentDidMount() {
     this.props.initializeApp()
   }
-
   render() {
     if (!this.props.initialized) {
-      return <Preloader />
+      return <Preloader />;
     }
     return (
       <div className="app-wrapper">
@@ -35,6 +32,17 @@ class App extends React.Component {
         <main className="app-wrapper-content">
           <Sidebar />
           <div className="app-wrapper-main-content">
+            {!this.props.isAuth
+              ? <div>
+                <div>Это тестовый проект в котором я изучаю React, он будет улучшаться со временем</div>
+                <div>В данный момент наиболее работоспособные вкладки: Profile, Find Friends</div>
+                <div>Для входа можно использовать тестовые данные:</div>
+                <div>Login: dioshoc1@yandex.ru</div>
+                <div>Password: 12345678</div>
+                <br />
+              </div>
+              : ""}
+
             <Route path='/Profile/:userID?' render={() => <ProfileConatiner />} />
             <Route path='/Messager' render={() => <MessagerContainer />} />
             <Route path='/Friends' render={() => <FriendsContainer />} />
@@ -53,7 +61,8 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    initialized: state.App.initialized
+    initialized: state.App.initialized,
+    isAuth: state.Auth.isAuth
   }
 }
 
