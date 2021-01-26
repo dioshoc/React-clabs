@@ -1,4 +1,3 @@
-import Description from './Description/Description';
 import DescriptionContainer from './Description/DescriptionContainer';
 import PostContainer from './Posts/PostsContainer';
 import Class from './Profile.module.css';

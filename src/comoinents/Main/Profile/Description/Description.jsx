@@ -1,7 +1,7 @@
 import Class from './Description.module.css'
 import Preloader from './../../../common/Preloader'
 import fish from "../../../../assets/img/fish.svg";
-import DescriptionStatus from "./DescriptionStatus/DescriptionStatus";
+import DesctiptionStatusWithHooks from './DescriptionStatus/DescriptionStatusWithHooks';
 
 function Description(props) {
     if (!props.profile) {
@@ -18,7 +18,7 @@ function Description(props) {
             <div className={Class.description}>
                 <h1 className={Class.name}>{props.profile.fullName}</h1>
 
-                <DescriptionStatus status={props.status} updateUserStatus={props.updateUserStatus} userID={props.profile.userId} AuthID={props.AuthID} />
+                <DesctiptionStatusWithHooks status={props.status} updateUserStatus={props.updateUserStatus} userID={props.profile.userId} AuthID={props.AuthID} />
 
                 <div className={Class.info}>
                     <div>Job search: {props.profile.lookingForAJob === true ? "YEs;)" : "no"}</div>

@@ -40,12 +40,12 @@ const maxLength250 = maxLengthCreator(250)
 
 function PostsProduction(props) {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={props.handleSubmit} className="form">
             <Field component={Textarea}
                 name="NewPostText"
                 className={Class.input}
                 placeholder="Enter your message..."
-                validate={[maxLength250]}
+                validate={[maxLength250, required]}
             />
             <button className={Class.btn}>Send</button>
         </form >

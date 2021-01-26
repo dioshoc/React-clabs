@@ -18,6 +18,19 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import Preloader from './comoinents/common/Preloader';
 
+function colas() {
+  let a = 15
+  return () => {
+    a++
+    return console.log(a)
+  }
+}
+
+const startColas = colas()
+startColas()
+startColas()
+startColas()
+
 class App extends React.Component {
   componentDidMount() {
     this.props.initializeApp()
