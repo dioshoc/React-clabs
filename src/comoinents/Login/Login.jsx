@@ -7,9 +7,9 @@ import { Redirect } from "react-router-dom";
 import Class from "./Login.module.css";
 import Style from "./../common/FormsControls/FormsControls.module.css";
 
-const LoginForm = ({ handleSubmit, error }) => {
+const LoginForm = (props) => {
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={props.handleSubmit}>
             <div className={Class.box}>
                 <Field placeholder={"Email"} component={Input} name={"email"} validate={[required]} />
             </div>
@@ -19,9 +19,9 @@ const LoginForm = ({ handleSubmit, error }) => {
             <div className={Class.box}>
                 <Field type="checkbox" component={Input} name={"rememberMe"} />remember me
             </div>
-            {error && <div className={Style.boxFormSummaryError}>
+            {props.error && <div className={Style.boxFormSummaryError}>
                 <span className={Style.formSummaryError}>
-                    {error}
+                    {props.error}
                 </span>
             </div>}
 
@@ -34,7 +34,7 @@ const LoginForm = ({ handleSubmit, error }) => {
 
 const LoginReduxForm = reduxForm({ form: 'login' })(LoginForm);
 
-const Login = (login, isAuth) => {
+const Login = ({ login, isAuth }) => {
     const onSubmit = (formData) => {
         login(formData.email, formData.password, formData.rememberMe)
     }
