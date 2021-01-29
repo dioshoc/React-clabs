@@ -32,7 +32,7 @@ function FindFriends(props) {
 
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
     let pages = [];
-    /*НАчинается с "i = 1" что бы загружать пользователей с первой старницы*/
+    /*Начинается с "i = 1" что бы загружать пользователей с первой старницы*/
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i)
     }
