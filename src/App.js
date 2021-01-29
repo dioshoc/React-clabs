@@ -18,23 +18,11 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import Preloader from './comoinents/common/Preloader';
 
-function colas() {
-  let a = 15
-  return () => {
-    a++
-    return console.log(a)
-  }
-}
-
-const startColas = colas()
-startColas()
-startColas()
-startColas()
-
 class App extends React.Component {
   componentDidMount() {
     this.props.initializeApp()
   }
+
   render() {
     if (!this.props.initialized) {
       return <Preloader />;
@@ -46,7 +34,7 @@ class App extends React.Component {
           <Sidebar />
           <div className="app-wrapper-main-content">
             {!this.props.isAuth
-              ? <div>
+              && <div>
                 <div>Это тестовый проект в котором я изучаю React, он будет улучшаться со временем</div>
                 <div>В данный момент наиболее работоспособные вкладки: Profile, Find Friends</div>
                 <div>Для входа можно использовать тестовые данные:</div>
@@ -54,7 +42,7 @@ class App extends React.Component {
                 <div>Password: 12345678</div>
                 <br />
               </div>
-              : ""}
+            }
 
             <Route path='/Profile/:userID?' render={() => <ProfileConatiner />} />
             <Route path='/Messager' render={() => <MessagerContainer />} />

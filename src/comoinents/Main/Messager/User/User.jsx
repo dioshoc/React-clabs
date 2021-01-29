@@ -5,7 +5,7 @@ function User(props) {
     return (
         <div className={Class.user}>
             <NavLink to={"/Messager/" + props.id} className={Class.link} activeClassName={Class.active}>
-                <img src="https://www.flaticon.com/svg/static/icons/svg/3802/3802143.svg"></img>
+                <img src="https://www.flaticon.com/svg/static/icons/svg/3802/3802143.svg" alt=""></img>
                 <div className={Class.name}>{props.name}</div>
             </NavLink>
         </div>

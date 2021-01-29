@@ -25,35 +25,35 @@ const authReducer = (state = initialState, action) => {
 export const setAuthUserData = (id, email, login, isAuth) => ({ type: SET_USER_DATA, payload: { id, email, login, isAuth } })
 
 export const authMe = (id, email, login) => {
-    return (dispatch) => {
-        return authAPI.authMe().then(data => {
-            if (data.resultCode === 0) {
-                let { id, email, login } = data.data
-                dispatch(setAuthUserData(id, email, login, true))
-            }
-        })
+    return async (dispatch) => {
+        let data = await authAPI.authMe();
+
+        if (data.resultCode === 0) {
+            let { id, email, login } = data.data
+            dispatch(setAuthUserData(id, email, login, true))
+        }
     }
 }
 export const login = (email, password, rememberMe) => {
-    return (dispatch) => {
-        authAPI.login(email, password, rememberMe).then(data => {
-            if (data.resultCode === 0) {
-                dispatch(authMe())
-            } else {
-                let message = data.messages.length > 0 ? data.messages[0] : "Some error"
-                debugger
-                dispatch(stopSubmit("login", { _error: message }))
-            }
-        })
+    return async (dispatch) => {
+        let data = await authAPI.login(email, password, rememberMe)
+
+        if (data.resultCode === 0) {
+            dispatch(authMe())
+        } else {
+            let message = data.messages.length > 0 ? data.messages[0] : "Some error"
+            debugger
+            dispatch(stopSubmit("login", { _error: message }))
+        }
     }
 }
 export const logout = () => {
-    return (dispatch) => {
-        authAPI.logout().then(data => {
-            if (data.resultCode === 0) {
-                dispatch(setAuthUserData(null, null, null, false))
-            }
-        })
+    return async (dispatch) => {
+        let data = await authAPI.logout()
+
+        if (data.resultCode === 0) {
+            dispatch(setAuthUserData(null, null, null, false))
+        }
     }
 }
 

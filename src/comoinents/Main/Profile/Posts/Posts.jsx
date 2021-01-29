@@ -1,10 +1,12 @@
+import React from 'react';
 import Class from './Posts.module.css'
 import fish from "../../../../assets/img/fish.svg";
 import { Field, reduxForm } from 'redux-form';
 import { required, maxLengthCreator } from '../../../../utils/validators/validators';
 import { Textarea } from '../../../common/FormsControls/FormsControls';
 
-function Posts(props) {
+const Posts = React.memo((props) => {
+    console.log("asd")
     let addPost = (value) => {
         props.addPost(value.NewPostText)
     }
@@ -35,7 +37,7 @@ function Posts(props) {
         </div >
     )
 }
-
+)
 const maxLength250 = maxLengthCreator(250)
 
 function PostsProduction(props) {

@@ -36,12 +36,15 @@ export const profileAPI = {
     },
     getStatus(userID) {
         return instance.get(`profile/status/` + userID)
+            .then(response => response.data)
     },
     updateStatus(status) {
-        return instance.put(`profile/status`, { status });
+        return instance.put(`profile/status`, { status })
+            .then(response => response.data)
     }
 }
 
+// после рефактора функции
 export const authAPI = {
     authMe() {
         return instance.get(`auth/me`)
