@@ -28,7 +28,7 @@ const DesctiptionStatusWithHooks = (props) => {
             {!editMode &&
                 <div onDoubleClick={activeteMode}>
                     <span >
-                        {status || "No Status"}
+                        {/* props.userID === props.AuthID ? status || "Double click here for add status" :  */status || "No Status"}
                     </span>
                 </div>
             }
