@@ -51,17 +51,3 @@
 .location {
     font-size: 20px;
 }
-span {
-    cursor: pointer;
-    margin: 0 2px;
-}
-.selectPage {
-    font-weight: 700;
-    font-size: 23px;
-    transition: 0.3s;
-}
-
-.pages {
-    width: 900px;
-    overflow: hidden;
-}

@@ -1,0 +1,17 @@
+.selectPage {
+    font-weight: 700;
+    font-size: 23px;
+    margin-top: -2px;
+    transition: 0.3s;
+}
+
+.pages {
+    display: flex;
+    width: 900px;
+    overflow: hidden;
+}
+span {
+    height: 50px;
+    margin: 2px;
+    cursor: pointer;
+}

@@ -12,6 +12,8 @@ function Messager(props) {
     let NewMessageProduction = (values) => {
         props.addMessage(values.newMessageBody)
     }
+
+
     return (
         <div className={Class.messager}>
             <div className={Class.dialogue}>
@@ -34,7 +36,6 @@ function Messager(props) {
     );
 }
 
-
 const MessageProduction = (props) => {
     return (
         <form onSubmit={props.handleSubmit} className={Class.prodactionForm}>
@@ -42,7 +43,7 @@ const MessageProduction = (props) => {
                 validate={[required]}
                 name="newMessageBody"
                 placeholder="Enter your message..."></Field>
-            <button>Send Message</button>
+            <button >Send Message</button>
         </form>
     )
 }
