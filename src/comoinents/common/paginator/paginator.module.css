@@ -1,17 +1,83 @@
 .selectPage {
     font-weight: 700;
-    font-size: 23px;
-    margin-top: -2px;
+    font-size: 22px;
     transition: 0.3s;
 }
 
 .pages {
     display: flex;
+    justify-content: center;
     width: 900px;
     overflow: hidden;
 }
-span {
-    height: 50px;
+.pages span {
+    width: 25px;
+    height: 30px;
     margin: 2px;
     cursor: pointer;
+}
+
+.pages button {
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+.pages button:focus {
+    background: none;
+    color: none;
+    outline: none;
+}
+button .arrowNext,
+button .arrowPrev {
+    display: flex;
+    position: relative;
+    width: 25px;
+    height: 4px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.arrowNext:after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 4px;
+    border-radius: 5px;
+    background-color: #fff;
+    transform: rotate(45deg);
+    right: -1px;
+    top: -5px;
+}
+.arrowNext:before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 4px;
+    border-radius: 5px;
+    background-color: #fff;
+    transform: rotate(-45deg);
+    right: -1px;
+    top: 5px;
+}
+
+.arrowPrev:after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 4px;
+    border-radius: 5px;
+    background-color: #fff;
+    transform: rotate(-45deg);
+    left: -1px;
+    top: -5px;
+}
+.arrowPrev:before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 4px;
+    border-radius: 5px;
+    background-color: #fff;
+    transform: rotate(45deg);
+    left: -1px;
+    top: 5px;
 }

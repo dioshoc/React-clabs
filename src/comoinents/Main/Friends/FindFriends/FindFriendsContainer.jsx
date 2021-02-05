@@ -18,7 +18,7 @@ class FindFriendsContainer extends React.Component {
     render() {
         return <>
             <FindFriends
-                totalUsersCount={this.props.totalUsersCount}
+                totalItemCount={this.props.totalItemCount}
                 pageSize={this.props.pageSize}
                 onPageChanged={this.onPageChanged}
                 currentPage={this.props.currentPage}
@@ -47,7 +47,7 @@ let mapStateToProps = (state) => {
     return {
         users: getUsersFindFriend(state),
         pageSize: getPageSize(state),
-        totalUsersCount: getTotalUserCount(state),
+        totalItemCount: getTotalUserCount(state),
         currentPage: getCurrentPage(state),
         followingIsProgress: getFollowingIsProgress(state),
         isFetching: getIsFetching(state),

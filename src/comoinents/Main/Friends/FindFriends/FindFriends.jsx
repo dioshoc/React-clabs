@@ -5,7 +5,7 @@ import Preloader from "../../../common/Preloader";
 import { NavLink } from "react-router-dom";
 import Paginator from "../../../common/paginator/paginator";
 
-function FindFriends({ pageSize, totalUsersCount, onPageChanged, currentPage, users, followingIsProgress, confirmFollow, confirmUnfollow, isFetching }) {
+function FindFriends({ pageSize, totalItemCount, onPageChanged, currentPage, users, followingIsProgress, confirmFollow, confirmUnfollow, isFetching }) {
     let ListFindFriends = users.map(u =>
         <div className={Class.container} key={u.id}>
             <div className={Class.preview}>
@@ -32,7 +32,7 @@ function FindFriends({ pageSize, totalUsersCount, onPageChanged, currentPage, us
 
     return (
         <div>
-            <Paginator totalUsersCount={totalUsersCount}
+            <Paginator totalItemCount={totalItemCount}
                 pageSize={pageSize}
                 onPageChanged={onPageChanged}
                 currentPage={currentPage} />
