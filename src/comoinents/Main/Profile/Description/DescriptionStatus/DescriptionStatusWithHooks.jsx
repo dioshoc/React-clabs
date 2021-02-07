@@ -27,17 +27,18 @@ const DesctiptionStatusWithHooks = (props) => {
         < div className={Class.descriptionStatus} >
             {!editMode &&
                 <div onDoubleClick={activeteMode}>
-                    <span >
-                        {props.AuthID ? status || "Double click here to add status" : status || "No Status"}
+                    <span>
+                        {props.AuthID ? status || <span style={{ cursor: 'pointer' }}>Double click here to add status</span> : status || "No Status"}
                     </span>
                 </div>
             }
-            {editMode &&
+            {
+                editMode &&
                 <div onBlur={deactiveteEditMode}>
                     <input onChange={onUserStatusChange} autoFocus="true" value={status} />
                 </div>
             }
-        </ div>
+        </ div >
     )
 }
 

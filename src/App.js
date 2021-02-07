@@ -1,22 +1,31 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import './App.css';
 import HeaderContainer from './comoinents/Header/HeaderContainer';
-import MessagerContainer from './comoinents/Main/Messager/MessagerContainer';
 
-import ProfileConatiner from './comoinents/Main/Profile/ProfileConatiner';
-import News from './comoinents/Main/News/News';
-import Music from './comoinents/Main/Music/Music';
-import Setings from './comoinents/Main/Setings/Setings';
 import Sidebar from './comoinents/Sidebar/Sidebar';
-import FriendsContainer from './comoinents/Main/Friends/FriendsContainer';
 
 import { Route, withRouter } from 'react-router-dom';
-import FindFrendsContainer from './comoinents/Main/Friends/FindFriends/FindFriendsContainer';
 import Login from './comoinents/Login/Login';
 import { initializeApp } from './redux/app-reduser';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import Preloader from './comoinents/common/Preloader';
+import { withSuspence } from './HOC/withSuspence';
+
+//import ProfileConatiner from './comoinents/Main/Profile/ProfileConatiner';
+//import MessagerContainer from './comoinents/Main/Messager/MessagerContainer';
+//import FriendsContainer from './comoinents/Main/Friends/FriendsContainer';
+//import FindFrendsContainer from './comoinents/Main/Friends/FindFriends/FindFriendsContainer';
+//import Setings from './comoinents/Main/Setings/Setings';
+//import News from './comoinents/Main/News/News';
+//import Music from './comoinents/Main/Music/Music';
+const ProfileConatiner = React.lazy(() => import('./comoinents/Main/Profile/ProfileConatiner'))
+const MessagerContainer = React.lazy(() => import('./comoinents/Main/Messager/MessagerContainer'))
+const FriendsContainer = React.lazy(() => import('./comoinents/Main/Friends/FriendsContainer'))
+const FindFrendsContainer = React.lazy(() => import('./comoinents/Main/Friends/FindFriends/FindFriendsContainer'))
+const News = React.lazy(() => import('./comoinents/Main/News/News'))
+const Music = React.lazy(() => import('./comoinents/Main/Music/Music'))
+const Setings = React.lazy(() => import('./comoinents/Main/Setings/Setings'))
 
 class App extends React.Component {
   componentDidMount() {
@@ -43,15 +52,14 @@ class App extends React.Component {
                 <br />
               </div>
             }
+            <Route path='/Profile/:userID?' render={withSuspence(ProfileConatiner)} />
+            <Route path='/Messager' render={withSuspence(MessagerContainer)} />
+            <Route path='/Friends' render={withSuspence(FriendsContainer)} />
+            <Route path='/FindFriends' render={withSuspence(FindFrendsContainer)} />
+            <Route path='/News' render={withSuspence(News)} />
+            <Route path='/Music' render={withSuspence(Music)} />
 
-            <Route path='/Profile/:userID?' render={() => <ProfileConatiner />} />
-            <Route path='/Messager' render={() => <MessagerContainer />} />
-            <Route path='/Friends' render={() => <FriendsContainer />} />
-            <Route path='/FindFriends' render={() => <FindFrendsContainer />} />
-            <Route path='/News' render={() => <News />} />
-            <Route path='/Music' render={() => <Music />} />
-            <Route path='/Setings' render={() => <Setings />} />
-
+            <Route path='/Setings' render={withSuspence(Setings)} />
             <Route path='/Login' render={() => <Login />} />
           </div>
         </main>

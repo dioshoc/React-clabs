@@ -6,7 +6,6 @@ import { required, maxLengthCreator } from '../../../../utils/validators/validat
 import { Textarea } from '../../../common/FormsControls/FormsControls';
 
 const Posts = React.memo((props) => {
-    console.log("asd")
     let addPost = (value) => {
         props.addPost(value.NewPostText)
     }
