@@ -11,7 +11,7 @@
     overflow: hidden;
 }
 .pages span {
-    width: 25px;
+    min-width: 25px;
     height: 30px;
     margin: 2px;
     cursor: pointer;

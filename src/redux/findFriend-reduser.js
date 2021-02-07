@@ -11,7 +11,8 @@ const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE-IS-FOLLOWING-PROGRESS'
 
 let initialState = {
     users: [],
-    pageSize: 5,
+    pageSize: 10,
+    pageSizeMyFriends: Infinity,
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: false,
@@ -83,7 +84,15 @@ export const getUsers = (Page = 1, pageSize) => async (dispatch) => {
     dispatch(toggleIsFetching(false))
     dispatch(setUsers(data.items))
     dispatch(setTotalUsersCount(data.totalCount))
+}
+export const getUsersForMyFrend = (Page = 1, pageSizeMyFriends) => async (dispatch) => {
+    dispatch(toggleIsFetching(true))
+    dispatch(setCurrentPage(Page))
+    let data = await userAPI.getUsers(Page, pageSizeMyFriends)
 
+    dispatch(toggleIsFetching(false))
+    dispatch(setUsers(data.items))
+    dispatch(setTotalUsersCount(data.totalCount))
 }
 
 const followUnfolloFlow = async (dispatch, userID, apiMethod, actionCreator) => {

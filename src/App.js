@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import './App.css';
 import HeaderContainer from './comoinents/Header/HeaderContainer';
 
@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import Preloader from './comoinents/common/Preloader';
 import { withSuspence } from './HOC/withSuspence';
+import MyFriendsContainer from './comoinents/Main/Friends/MyFriends/MyFriendsContainer';
 
 //import ProfileConatiner from './comoinents/Main/Profile/ProfileConatiner';
 //import MessagerContainer from './comoinents/Main/Messager/MessagerContainer';
@@ -55,12 +56,14 @@ class App extends React.Component {
             <Route path='/Profile/:userID?' render={withSuspence(ProfileConatiner)} />
             <Route path='/Messager' render={withSuspence(MessagerContainer)} />
             <Route path='/Friends' render={withSuspence(FriendsContainer)} />
-            <Route path='/FindFriends' render={withSuspence(FindFrendsContainer)} />
             <Route path='/News' render={withSuspence(News)} />
             <Route path='/Music' render={withSuspence(Music)} />
 
             <Route path='/Setings' render={withSuspence(Setings)} />
             <Route path='/Login' render={() => <Login />} />
+
+            <Route path='/Friends/FindFriends' render={withSuspence(FindFrendsContainer)} />
+            <Route path='/Friends/MyFriends' render={withSuspence(MyFriendsContainer)} />
           </div>
         </main>
       </div>

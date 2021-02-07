@@ -4,13 +4,13 @@ import { createSelector } from "reselect"
 const getUsersFindFriendSelector = (state) => {
     return state.FindFriendPage.users
 }
-
 export const getUsersFindFriend = createSelector(getUsersFindFriendSelector, (users) => {
     return users.filter(users => true)
 })
 //Типа сложный селектор конец
-
-
+export const pageSizeMyFriends = (state) => {
+    return state.FindFriendPage.pageSizeMyFriends
+}
 export const getPageSize = (state) => {
     return state.FindFriendPage.pageSize
 }

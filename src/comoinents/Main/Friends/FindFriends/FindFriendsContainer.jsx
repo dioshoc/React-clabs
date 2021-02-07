@@ -5,8 +5,7 @@ import FindFriends from "./FindFriends";
 
 import { getIsFetching, getCurrentPage, getFollowingIsProgress, getPageSize, getTotalUserCount, getUsersFindFriend } from "../../../../redux/findFriend-selectors";
 
-
-class FindFriendsContainer extends React.Component {
+class FindFriendsWrapper extends React.Component {
     componentDidMount() {
         this.props.getUsers(this.props.pageNumber, this.props.pageSize)
     }
@@ -54,13 +53,13 @@ let mapStateToProps = (state) => {
     }
 }
 
-const FindFrendsContainer = connect(mapStateToProps, {
+const FindFriendsContainer = connect(mapStateToProps, {
     confirmFollow,
     confirmUnfollow,
     setCurrentPage,
     getUsers,
     toggleIsFollowingProgress,
 
-})(FindFriendsContainer)
+})(FindFriendsWrapper)
 
-export default FindFrendsContainer
+export default FindFriendsContainer

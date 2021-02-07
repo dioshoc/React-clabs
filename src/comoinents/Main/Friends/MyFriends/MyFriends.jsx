@@ -1,15 +1,15 @@
 import React from "react";
-import Class from "./FindFriends.module.css";
+import Class from "./MyFriends.module.css";
 import fishIMG from "./../../../../assets/img/fish.svg";
 import Preloader from "../../../common/Preloader";
 import { NavLink } from "react-router-dom";
-import Paginator from "../../../common/paginator/paginator";
 
-function FindFriends({ pageSize, totalItemCount, onPageChanged, currentPage, users, followingIsProgress, confirmFollow, confirmUnfollow, isFetching }) {
-    let ListFindFriends = users.map(u =>
+function MyFriends({ users, followingIsProgress, confirmUnfollow, isFetching }) {
+    let FriendUsers = users.filter(u => u.followed)
+    let ListFindFriends = FriendUsers.map(u =>
         <div className={Class.container} key={u.id}>
             <div className={Class.preview}>
-                <NavLink to={"./../Profile/" + u.id}>
+                <NavLink to={"/Profile/" + u.id}>
                     <img src={u.photos.small != null ? u.photos.small : fishIMG} alt="" />
                 </NavLink>
                 {u.followed
@@ -17,9 +17,7 @@ function FindFriends({ pageSize, totalItemCount, onPageChanged, currentPage, use
                         confirmUnfollow(u.id)
                     }}>UnFollow</button>
 
-                    : <button disabled={followingIsProgress.some(id => id === u.id)} onClick={() => {
-                        confirmFollow(u.id)
-                    }}>Follow</button>
+                    : null
                 }
             </div>
             <div className={Class.info}>
@@ -28,17 +26,14 @@ function FindFriends({ pageSize, totalItemCount, onPageChanged, currentPage, use
                 </div>
                 <div className={Class.status}>{u.status}</div>
             </div>
-        </div >)
+        </div >
+    )
 
     return (
         <div>
             {isFetching ? <Preloader /> : ListFindFriends}
-            <Paginator totalItemCount={totalItemCount}
-                pageSize={pageSize}
-                onPageChanged={onPageChanged}
-                currentPage={currentPage} />
         </div >
     )
 }
 
-export default FindFriends
+export default MyFriends
